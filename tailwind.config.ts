@@ -16,6 +16,16 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        background: '#fbfafb',
+        base: '#fefeff',
+        text: '#383b3b',
+        primary: '#ddf2fe',
+        secondary: '#ddf2fe',
+        accent: '#e9ddfc',
+        neutral: '#383b3b',
+        graph: '#e0e9bb'
+      }
     },
   },
   darkMode: "class",
