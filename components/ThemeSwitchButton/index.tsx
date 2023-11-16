@@ -7,7 +7,7 @@ export const ThemeSwitchComponent = () => {
   return (
     <Switch
       size="lg"
-      color="success"
+      color="default"
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
     />

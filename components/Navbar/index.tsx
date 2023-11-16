@@ -1,8 +1,9 @@
 'use client'
 import React from "react";
-import { Navbar, NavbarBrand, NavbarContent, NavbarMenu, NavbarMenuToggle, NavbarItem, Link, Button, NavbarMenuItem, Avatar } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarMenu, NavbarMenuToggle, NavbarItem, Button, NavbarMenuItem, Avatar } from "@nextui-org/react";
 import { AcmeLogo } from "../../assets/icons/AcmeLogo";
 import { ThemeSwitchComponent } from "../ThemeSwitchButton";
+import { UserIcon } from "@/assets/icons/UserIcon";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -13,10 +14,6 @@ export const NavbarComponent = () => {
     "Activity",
     "Analytics",
     "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
     "Log Out",
   ];
 
@@ -28,15 +25,15 @@ export const NavbarComponent = () => {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="lg:hidden"
         />
         <NavbarBrand>
           <AcmeLogo />
-          <p className="font-bold text-inherit">Bioanimal</p>
+          <p className="hidden sm:block font-bold text-inherit">Bioanimal</p>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="flex gap-4" justify="center">
         <NavbarItem>
           <ThemeSwitchComponent />
         </NavbarItem>
@@ -47,16 +44,12 @@ export const NavbarComponent = () => {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
+            <Button
+              className='bg-transparent hover:bg-black hover:text-base duration-250'
+              startContent={<UserIcon />}
             >
               {item}
-            </Link>
+            </Button>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
