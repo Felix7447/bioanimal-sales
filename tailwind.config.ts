@@ -22,7 +22,7 @@ const config: Config = {
         text: '#383b3b',
         primary: '#ddf2fe',
         secondary: '#eefea2',
-        accent: '#e9ddfc',
+        tertiary: '#e9ddfc',
         neutral: '#383b3b',
         graph: '#e0e9bb'
       }
