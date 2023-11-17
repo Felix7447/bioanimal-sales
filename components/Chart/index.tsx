@@ -1,8 +1,7 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Chart as ChartJS,
-  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -10,64 +9,45 @@ import {
   Tooltip,
   Legend,
   Filler,
-  Align
+  TimeScale
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import 'chartjs-adapter-date-fns'
+import { TimeDropDown } from '../TimeDropDown'
+import { alignChartTitle, scaleType, View } from '@/types'
+import { dayRange } from '@/utils/dateRanges'
 
 ChartJS.register(
-  CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  TimeScale
 )
 
-const options = {
-  responsive: true,
-  scales: {
-    x: {
-      grid: {
-        display: false
-      }
-    },
-    y: {
-      min: 0,
-      grid: {
-        display: false
-      }
-    }
-  },
-  plugins: {
-    legend: {
-      position: 'bottom' as const,
-    },
-    title: {
-      display: true,
-      text: 'Analytics',
-      align: "start",
-      padding: 20,
-      font: {
-        size: 20,
-        weight: 'bold'
-      }
-    }
-  },
-}
+const alignment: alignChartTitle = "start"
+const scaleTypeX: scaleType = "time"
+const now = new Date().getTime()
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec']
-
-export const data = {
-  labels,
+const data = {
   datasets: [
     {
       label: 'Sales',
-      data: [20, 35, 44, 59, 48, 50, 30, 20, 25, 30, 31, 40],
-      borderColor: '#ddf2fe',
+      data: [
+        { x: new Date('2023-10-27T00:00:00'), y: 5 },
+        { x: new Date('2023-10-29T00:00:00'), y: 3 },
+        { x: new Date('2023-11-02T00:00:00'), y: 4 },
+        { x: new Date('2023-11-03T00:00:00'), y: 6 },
+        { x: new Date('2023-11-08T00:00:00'), y: 10 },
+        { x: new Date('2023-11-09T00:00:00'), y: 6 },
+        { x: new Date('2023-11-15T00:00:00'), y: 7 },
+      ],
+      borderColor: '#8dd4fc',
       borderWidth: 2,
-      pointBackgroundColor: '#ddf2fe',
+      pointBackgroundColor: '#8dd4fc',
       backgroundColor: (context: any) => {
         if (!context.chart.chartArea) {
           return
@@ -76,8 +56,8 @@ export const data = {
         const { ctx, chartArea: { top, bottom } } = context.chart
         const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
 
-        gradientBg.addColorStop(0, '#ddf2fe')
-        gradientBg.addColorStop(1, '#ddf2fe00')
+        gradientBg.addColorStop(0, '#8dd4fc')
+        gradientBg.addColorStop(1, '#8dd4fc00')
 
         return gradientBg
       },
@@ -87,9 +67,17 @@ export const data = {
     },
     {
       label: 'Vet',
-      data: [10, 10, 24, 30, 20, 30, 15, 20, 10, 20, 35, 20],
-      borderColor: '#eefea2',
-      pointBackgroundColor: '#eefea2',
+      data: [
+        { x: new Date('2023-10-27T00:00:00'), y: 2 },
+        { x: new Date('2023-10-29T00:00:00'), y: 1 },
+        { x: new Date('2023-11-02T00:00:00'), y: 2 },
+        { x: new Date('2023-11-03T00:00:00'), y: 4 },
+        { x: new Date('2023-11-08T00:00:00'), y: 7 },
+        { x: new Date('2023-11-09T00:00:00'), y: 2 },
+        { x: new Date('2023-11-15T00:00:00'), y: 4 },
+      ],
+      borderColor: '#e4fc72',
+      pointBackgroundColor: '#e4fc72',
       backgroundColor: (context: any) => {
         if (!context.chart.chartArea) {
           return
@@ -98,8 +86,8 @@ export const data = {
         const { ctx, chartArea: { top, bottom } } = context.chart
         const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
 
-        gradientBg.addColorStop(0, '#eefea2')
-        gradientBg.addColorStop(1, '#eefea200')
+        gradientBg.addColorStop(0, '#e4fc72')
+        gradientBg.addColorStop(1, '#e4fc7200')
 
         return gradientBg
       },
@@ -109,9 +97,17 @@ export const data = {
     },
     {
       label: 'Peluquería',
-      data: [10, 15, 20, 29, 28, 10, 10, 24, 30, 20, 30, 35, 40],
-      borderColor: '#e9ddfc',
-      pointBackgroundColor: '#e9ddfc',
+      data: [
+        { x: new Date('2023-10-27T00:00:00'), y: 3 },
+        { x: new Date('2023-10-29T00:00:00'), y: 2 },
+        { x: new Date('2023-11-02T00:00:00'), y: 2 },
+        { x: new Date('2023-11-03T00:00:00'), y: 2 },
+        { x: new Date('2023-11-08T00:00:00'), y: 3 },
+        { x: new Date('2023-11-09T00:00:00'), y: 4 },
+        { x: new Date('2023-11-15T00:00:00'), y: 3 },
+      ],
+      borderColor: '#cbacfc',
+      pointBackgroundColor: '#cbacfc',
       backgroundColor: (context: any) => {
         if (!context.chart.chartArea) {
           return
@@ -120,8 +116,8 @@ export const data = {
         const { ctx, chartArea: { top, bottom } } = context.chart
         const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
 
-        gradientBg.addColorStop(0, '#e9ddfc')
-        gradientBg.addColorStop(1, '#e9ddfc00')
+        gradientBg.addColorStop(0, '#cbacfc')
+        gradientBg.addColorStop(1, '#cbacfc00')
 
         return gradientBg
       },
@@ -133,6 +129,58 @@ export const data = {
 }
 
 export const ChartComponent = () => {
-  return <Line options={options} data={data} className="w-3/4 my-14 px-2" />
+  const [view, setView] = useState<View>({ time: "day", range: dayRange })
+
+  const { time, range } = view
+
+  const options = {
+    responsive: true,
+    scales: {
+      x: {
+        type: scaleTypeX,
+        time: {
+          unit: time
+        },
+        min: range,
+        max: now,
+        grid: {
+          display: false
+        }
+      },
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'bottom' as const,
+      },
+      title: {
+        display: true,
+        text: 'Analytics',
+        align: alignment,
+        font: {
+          size: 20,
+          weight: 'bold'
+        }
+      }
+    },
+  }
+
+  const handleDropDown = (view: View) => {
+    setView(view)
+  }
+
+  return (
+    <section className='py-14'>
+      <section className='text-right px-8'>
+        <TimeDropDown changeTime={handleDropDown} />
+      </section>
+      <Line options={options} data={data} className="w-3/4 my-2 px-2" />
+    </section>
+  )
 }
 
