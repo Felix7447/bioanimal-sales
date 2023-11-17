@@ -14,12 +14,12 @@ const menuItems = [
 export const MenuComponent = () => {
   return (
     <nav
-      className="bg-base h-screen hidden lg:block lg:col-span-2 p-4"
+      className="bg-base h-full hidden lg:block lg:col-span-2 p-4"
     >
-      <ul className="flex-col">
+      <ul className="sticky top-20 flex flex-col items-start">
         {menuItems.map((item, index) => (
-          <li key={`${item}-${index}`} className="my-2">
-            <Button className='bg-transparent hover:bg-black hover:text-base duration-250' startContent={<UserIcon />}>
+          <li key={`${item}-${index}`} className="my-1 px-4 w-full">
+            <Button className='w-full justify-start bg-transparent hover:bg-black hover:text-base duration-250' startContent={<UserIcon />}>
               {item}
             </Button>
           </li>

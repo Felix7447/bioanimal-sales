@@ -175,8 +175,8 @@ export const ChartComponent = () => {
   }
 
   return (
-    <section className='py-14'>
-      <section className='text-right px-8'>
+    <section className="relative">
+      <section className="absolute top-0 right-0 px-8">
         <TimeDropDown changeTime={handleDropDown} />
       </section>
       <Line options={options} data={data} className="w-3/4 my-2 px-2" />
