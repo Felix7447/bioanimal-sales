@@ -157,6 +157,11 @@ export const ChartComponent = () => {
     plugins: {
       legend: {
         position: 'bottom' as const,
+        labels: {
+          usePointStyle: true,
+          pointStyle: 'circle',
+          padding: 25
+        }
       },
       title: {
         display: true,

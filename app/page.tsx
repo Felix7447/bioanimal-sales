@@ -1,5 +1,6 @@
 import { CardComponent } from '@/components/Card'
-import { ChartComponent } from '@/components/Chart'
+import { DoughnutChart } from '@/components/DoughnutChart'
+import { ChartComponent } from '@/components/LineChart'
 import { TableComponent } from '@/components/Table'
 
 export default function Home() {
@@ -22,9 +23,19 @@ export default function Home() {
           </section>
         </footer>
       </main>
-      <aside className="min-h-screen p-4 col-span-12 flex flex-col justify-evenly md:col-span-4 lg:col-span-3 border-2 border-black">
-        <main>Stats</main>
-        <footer>last sales</footer>
+      <aside className="min-h-screen p-4 col-span-12 flex flex-col md:col-span-4 lg:col-span-3">
+        <main>
+          <h3 className="text-xl font-bold text-left my-4">
+            Proporción de ventas
+          </h3>
+          <DoughnutChart />
+        </main>
+        <footer>
+          <h3 className="text-xl font-bold text-left">
+            Últimas ventas
+          </h3>
+          <TableComponent />
+        </footer>
       </aside>
     </>
   )
