@@ -166,11 +166,13 @@ export const ChartComponent = () => {
       title: {
         display: true,
         text: 'Analytics',
+        color: '#383b3b',
+        padding: 15,
         align: alignment,
         font: {
           size: 20,
           weight: 'bold'
-        }
+        },
       }
     },
   }

@@ -53,7 +53,7 @@ export const TableComponent = () => {
       <TableBody items={rows}>
         {(item) => (
           <TableRow key={item.key} className="cursor-pointer hover:text-white hover:bg-neutral duration-250">
-            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+            {(columnKey) => <TableCell className="first:rounded-s-lg last:rounded-e-lg">{getKeyValue(item, columnKey)}</TableCell>}
           </TableRow>
         )}
       </TableBody>

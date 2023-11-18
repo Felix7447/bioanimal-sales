@@ -31,7 +31,7 @@ export default function Home() {
           <DoughnutChart />
         </main>
         <footer>
-          <h3 className="text-xl font-bold text-left">
+          <h3 className="text-xl font-bold text-left mb-4">
             Últimas ventas
           </h3>
           <TableComponent />

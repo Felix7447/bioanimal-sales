@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-background`}>
         <Providers>
           <div className="grid grid-cols-12">
-            <header className='col-span-12'>
+            <header className="col-span-12">
               <NavbarComponent />
             </header>
             <MenuComponent />

@@ -18,7 +18,8 @@ export const NavbarComponent = () => {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
       className="bg-base col-span-12 md:px-8"
       maxWidth="full"
     >
