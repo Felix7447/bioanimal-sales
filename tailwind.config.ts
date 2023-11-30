@@ -19,6 +19,7 @@ const config: Config = {
       colors: {
         background: '#fbfafb',
         base: '#fefeff',
+        darkbase: '#161717',
         text: '#383b3b',
         primary: '#ddf2fe',
         secondary: '#eefea2',
@@ -31,4 +32,5 @@ const config: Config = {
   darkMode: "class",
   plugins: [nextui()]
 }
+
 export default config

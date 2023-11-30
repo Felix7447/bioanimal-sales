@@ -182,8 +182,8 @@ export const ChartComponent = () => {
   }
 
   return (
-    <section className="relative">
-      <section className="absolute top-0 right-0 px-8">
+    <section className="relative dark:bg-darkbase dark:text-background dark:border-text dark:border-1 rounded-lg p-2 shadow">
+      <section className="absolute right-0 px-8 top-4">
         <TimeDropDown changeTime={handleDropDown} />
       </section>
       <Line options={options} data={data} className="w-3/4 my-2 px-2" />

@@ -9,7 +9,7 @@ interface Props {
 
 export const CardComponent: React.FC<Props> = ({ background, title, sales }) => {
   return (
-    <Card className={`max-w-[240px] w-[30%]`} style={{ backgroundColor: background }}>
+    <Card className={`max-w-[240px] w-[30%] text-text`} style={{ backgroundColor: background }}>
       <CardHeader className="flex flex-col gap-3 sm:flex-row">
         <Image
           alt="nextui logo"

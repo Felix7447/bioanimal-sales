@@ -18,7 +18,7 @@ export default function Home() {
         </main>
         <footer className="w-full">
           <h3 className="text-xl font-bold text-left">Top clients</h3>
-          <section className="bg-base my-4 rounded-lg">
+          <section className="bg-base my-4 rounded-2xl dark:bg-neutral">
             <TableComponent />
           </section>
         </footer>
