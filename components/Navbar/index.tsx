@@ -20,7 +20,7 @@ export const NavbarComponent = () => {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-base dark:bg-darkbase col-span-12 md:px-8"
+      className="bg-base dark:bg-darkbase dark:border-b-1 dark:border-text col-span-12 md:px-8"
       maxWidth="full"
     >
       <NavbarContent>
@@ -42,11 +42,11 @@ export const NavbarComponent = () => {
           <Avatar name="Felix" />
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className="dark:bg-neutral dark:bg-opacity-70">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Button
-              className='bg-transparent hover:bg-black hover:text-base duration-250'
+              className='bg-transparent hover:bg-neutral hover:text-base duration-250'
               startContent={<UserIcon />}
             >
               {item}

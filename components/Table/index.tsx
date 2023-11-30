@@ -46,7 +46,7 @@ const columns = [
 
 export const TableComponent = () => {
   return (
-    <Table aria-label="Ultimas ventas" className="dark:border-text dark:border-1 rounded-xl">
+    <Table aria-label="Ultimas ventas" className="dark:border-text dark:border-1 rounded-xl min-w-fit">
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>

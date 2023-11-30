@@ -7,5 +7,5 @@ export const monthRange = date.setDate(date.getDate() - 7 * 12)
 export const dateRange = {
   "day": dayRange,
   "week": weekRange,
-  "month": date.setDate(date.getDate() - 7 * 12)
+  "month": monthRange
 }

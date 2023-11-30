@@ -38,5 +38,5 @@ const options = {
 }
 
 export const DoughnutChart = () => {
-  return <Doughnut data={data} options={options} className="my-8" />
+  return <Doughnut data={data} options={options} className="my-8 hover:cursor-pointer" />
 }

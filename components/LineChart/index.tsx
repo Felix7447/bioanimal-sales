@@ -35,7 +35,7 @@ const now = new Date().getTime()
 const data = {
   datasets: [
     {
-      label: 'Sales',
+      label: 'Ventas Totales',
       data: [
         { x: new Date('2023-10-27T00:00:00'), y: 5 },
         { x: new Date('2023-10-29T00:00:00'), y: 3 },
@@ -128,13 +128,14 @@ const data = {
   ],
 }
 
-export const ChartComponent = () => {
+export const LineChartComponent = () => {
   const [view, setView] = useState<View>({ time: "day", range: dayRange })
 
   const { time, range } = view
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         type: scaleTypeX,
@@ -182,7 +183,7 @@ export const ChartComponent = () => {
   }
 
   return (
-    <section className="relative dark:bg-darkbase dark:text-background dark:border-text dark:border-1 rounded-lg p-2 shadow">
+    <section className="relative rounded-lg p-2 shadow dark:bg-darkbase dark:text-background dark:border-text dark:border-1 hover:cursor-pointer">
       <section className="absolute right-0 px-8 top-4">
         <TimeDropDown changeTime={handleDropDown} />
       </section>

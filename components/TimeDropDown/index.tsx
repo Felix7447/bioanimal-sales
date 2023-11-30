@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { View } from "@/types";
 import { dateRange } from "@/utils/dateRanges";
@@ -7,10 +7,16 @@ interface Props {
   changeTime: (view: View) => void
 }
 
-export const TimeDropDown = ({ changeTime }: Props) => {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["day"]));
+const keyNames = {
+  "day": "Día",
+  "week": "Semana",
+  "month": "Mes",
+}
 
-  const selectedValue = React.useMemo(
+export const TimeDropDown = ({ changeTime }: Props) => {
+  const [selectedKeys, setSelectedKeys] = useState(new Set([keyNames["day"]]));
+
+  const selectedValue = useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
@@ -18,7 +24,7 @@ export const TimeDropDown = ({ changeTime }: Props) => {
   const handleChange = (keys: any) => {
     const time: View['time'] = keys.currentKey
     const range = dateRange[`${time}`]
-    setSelectedKeys(new Set([time]))
+    setSelectedKeys(new Set([keyNames[time]]))
     changeTime({ time, range })
   }
 
@@ -40,9 +46,9 @@ export const TimeDropDown = ({ changeTime }: Props) => {
         selectedKeys={selectedKeys}
         onSelectionChange={handleChange}
       >
-        <DropdownItem key="day">Day</DropdownItem>
-        <DropdownItem key="week">Week</DropdownItem>
-        <DropdownItem key="month">Month</DropdownItem>
+        <DropdownItem key="day">Día</DropdownItem>
+        <DropdownItem key="week">Semana</DropdownItem>
+        <DropdownItem key="month">Mes</DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
