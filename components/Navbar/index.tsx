@@ -4,18 +4,10 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarMenu, NavbarMenuToggle, Navba
 import { AcmeLogo } from "../../assets/icons/AcmeLogo";
 import { ThemeSwitchComponent } from "../ThemeSwitchButton";
 import { UserIcon } from "@/assets/icons/UserIcon";
+import { menuItems } from "@/utils/menuItems";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Log Out",
-  ];
 
   return (
     <Navbar
@@ -44,12 +36,12 @@ export const NavbarComponent = () => {
       </NavbarContent>
       <NavbarMenu className="dark:bg-neutral dark:bg-opacity-70">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.name}-${index}`}>
             <Button
               className='bg-transparent hover:bg-neutral hover:text-base duration-250'
-              startContent={<UserIcon />}
+              startContent={<item.icon />}
             >
-              {item}
+              {item.name}
             </Button>
           </NavbarMenuItem>
         ))}
