@@ -13,7 +13,7 @@ export default function Home() {
           <CardComponent background="#eefea2" title="Veterinaria" sales={250} />
           <CardComponent background="#e9ddfc" title="Peluquería" sales={250} />
         </header>
-        <main className="w-full bg-base my-10 rounded-lg">
+        <main className="w-full my-10 rounded-lg">
           <LineChartComponent />
         </main>
         <footer className="w-full">

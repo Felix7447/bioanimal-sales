@@ -3,11 +3,13 @@ import React from "react";
 import { Navbar, NavbarBrand, NavbarContent, NavbarMenu, NavbarMenuToggle, NavbarItem, Button, NavbarMenuItem, Avatar } from "@nextui-org/react";
 import { AcmeLogo } from "../../assets/icons/AcmeLogo";
 import { ThemeSwitchComponent } from "../ThemeSwitchButton";
-import { UserIcon } from "@/assets/icons/UserIcon";
 import { menuItems } from "@/utils/menuItems";
+import { useRouter } from "next/navigation";
 
 export const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const router = useRouter()
 
   return (
     <Navbar
@@ -40,6 +42,7 @@ export const NavbarComponent = () => {
             <Button
               className='bg-transparent hover:bg-neutral hover:text-base duration-250'
               startContent={<item.icon />}
+              onClick={() => router.push(item.path)}
             >
               {item.name}
             </Button>

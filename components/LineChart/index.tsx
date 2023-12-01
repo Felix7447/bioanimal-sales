@@ -183,7 +183,7 @@ export const LineChartComponent = () => {
   }
 
   return (
-    <section className="relative rounded-lg p-2 shadow dark:bg-darkbase dark:text-background dark:border-text dark:border-1 hover:cursor-pointer">
+    <section className="relative rounded-lg p-2 shadow bg-base dark:bg-darkbase dark:text-background dark:border-text dark:border-1 hover:cursor-pointer">
       <section className="absolute right-0 px-8 top-4">
         <TimeDropDown changeTime={handleDropDown} />
       </section>
