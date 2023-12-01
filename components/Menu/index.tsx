@@ -1,14 +1,20 @@
-import { UserIcon } from '@/assets/icons/UserIcon';
-import { Button } from '@nextui-org/react'
 import React from 'react'
+import { Button } from '@nextui-org/react'
+
+import { DashboardIcon } from '@/assets/icons/DashboardIcon';
+import { UserIcon } from '@/assets/icons/UserIcon';
+import { ClientsIcon } from '@/assets/icons/ClientsIcon';
+import { RocketIcon } from '@/assets/icons/RocketIcon';
+import { HeartIcon } from '@/assets/icons/HeartIcon';
+import { ScissorsIcon } from '@/assets/icons/ScissorsIcon';
 
 const menuItems = [
-  "Profile",
-  "Dashboard",
-  "Activity",
-  "Analytics",
-  "System",
-  "Log Out",
+  { name: "Dashboard", icon: <DashboardIcon /> },
+  { name: "Ventas", icon: <RocketIcon /> },
+  { name: "Clientes", icon: <ClientsIcon /> },
+  { name: "Mascotas", icon: <HeartIcon /> },
+  { name: "Procedimientos", icon: <ScissorsIcon /> },
+  { name: "Sesión", icon: <UserIcon /> }
 ];
 
 export const MenuComponent = () => {
@@ -18,9 +24,9 @@ export const MenuComponent = () => {
     >
       <ul className="sticky text-medium top-0 flex flex-col items-start">
         {menuItems.map((item, index) => (
-          <li key={`${item}-${index}`} className="my-1 px-4 w-full">
-            <Button className='w-full justify-start bg-transparent hover:bg-darkbase dark:hover:bg-neutral hover:text-base duration-250' startContent={<UserIcon />}>
-              {item}
+          <li key={`${item.name}-${index}`} className="my-1 px-4 w-full">
+            <Button className='w-full justify-start bg-transparent hover:bg-darkbase dark:hover:bg-background dark:hover:text-darkbase hover:text-base duration-250' startContent={item.icon}>
+              {item.name}
             </Button>
           </li>
         ))}
