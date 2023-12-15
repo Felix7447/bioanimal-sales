@@ -25,7 +25,8 @@ const config: Config = {
         secondary: '#eefea2',
         tertiary: '#e9ddfc',
         neutral: '#383b3b',
-        graph: '#e0e9bb'
+        graph: '#e0e9bb',
+        success: '#5cb85c'
       }
     },
   },
