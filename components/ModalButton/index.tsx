@@ -26,7 +26,7 @@ export const ModalButton = () => {
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Completa el formulario</ModalHeader>
               <form className='px-2' onSubmit={(event) => handleSubmit(event, onClose)}>
                 <ModalBody>
                   <label htmlFor="nombre">Nombre y Apellido
