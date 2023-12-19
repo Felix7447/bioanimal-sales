@@ -51,7 +51,7 @@ const Procedures = () => {
         Procedimientos
       </h1>
       <section className="w-full sm:px-8 my-10 rounded-lg">
-        <ModalButton />
+        <ModalButton title='Añadir procedimiento' />
       </section>
       <main className="w-full sm:px-8">
         <TableComponent rows={rows} columns={columns} />

@@ -66,7 +66,7 @@ const Pets = () => {
         Mascotas
       </h1>
       <section className="w-full sm:px-8 my-10 rounded-lg">
-        <ModalButton />
+        <ModalButton title='Añadir mascota' />
       </section>
       <main className="w-full sm:px-8">
         <TableComponent rows={rows} columns={columns} />

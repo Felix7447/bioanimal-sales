@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react"
 
-export const ModalButton = () => {
+export const ModalButton = ({ title }: { title: string }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   const [name, setName] = useState('');
@@ -21,7 +21,7 @@ export const ModalButton = () => {
 
   return (
     <>
-      <Button onPress={onOpen} className='bg-success text-background font-bold'>Añadir cliente</Button>
+      <Button onPress={onOpen} className='bg-success text-background font-bold'>{title}</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (

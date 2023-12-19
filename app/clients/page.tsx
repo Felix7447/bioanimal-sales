@@ -59,7 +59,7 @@ const Clients = () => {
         Clientes
       </h1>
       <section className="w-full sm:px-8 my-10 rounded-lg">
-        <ModalButton />
+        <ModalButton title='Añadir cliente' />
       </section>
       <main className="w-full sm:px-8">
         <TableComponent rows={rows} columns={columns} />
