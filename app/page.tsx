@@ -3,6 +3,48 @@ import { DoughnutChart } from '@/components/DoughnutChart'
 import { LineChartComponent } from '@/components/LineChart'
 import { TableComponent } from '@/components/Table'
 
+const rows = [
+  {
+    key: "1",
+    name: "Tony Reichert",
+    pet: "Camila",
+    type: "Veterinaria",
+  },
+  {
+    key: "2",
+    name: "Zoey Lang",
+    pet: "Uñañe",
+    type: "Peluquería",
+  },
+  {
+    key: "3",
+    name: "Jane Fisher",
+    pet: "Sindy",
+    type: "Veterinaria",
+  },
+  {
+    key: "4",
+    name: "William Howard",
+    pet: "Commy",
+    type: "Peluquería",
+  },
+];
+
+const columns = [
+  {
+    key: "name",
+    label: "NOMBRE",
+  },
+  {
+    key: "pet",
+    label: "MASCOTA",
+  },
+  {
+    key: "type",
+    label: "TIPO",
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -19,7 +61,7 @@ export default function Home() {
         <footer className="w-full">
           <h3 className="text-xl font-bold text-left">Mejores clientes</h3>
           <section className="bg-base my-4 rounded-2xl dark:bg-neutral">
-            <TableComponent />
+            <TableComponent rows={rows} columns={columns} />
           </section>
         </footer>
       </main>
@@ -34,7 +76,7 @@ export default function Home() {
           <h3 className="text-xl font-bold text-left mb-4">
             Últimas ventas
           </h3>
-          <TableComponent />
+          <TableComponent rows={rows} columns={columns} />
         </footer>
       </aside>
     </>
