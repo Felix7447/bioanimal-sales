@@ -3,7 +3,7 @@ name: Unit Tests
 on: [push]
 
 jobs:
-  my-job:
+  tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -11,4 +11,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        run: npm run test
+        run: npm test
