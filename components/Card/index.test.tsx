@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, prettyDOM } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { CardComponent } from './index'
 
