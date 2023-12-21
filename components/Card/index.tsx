@@ -2,7 +2,7 @@ import React from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 interface Props {
-  background: string
+  background?: string
   title: string
   sales: number
 }
